@@ -1,3 +1,18 @@
 from django.contrib import admin
+from menu_app.models import Menu, MenuItem
 
-# Register your models here.
+
+@admin.register(Menu)
+class Menu(admin.ModelAdmin):
+    list_display = ('id', 'name')
+
+
+@admin.register(MenuItem)
+class Item(admin.ModelAdmin):
+    list_display = ('id', 'title', 'parent', 'menu')
+    list_filter = ('menu', )
+    fieldsets = (
+        (None, {
+            'fields': (('menu', 'parent'), 'title')
+        }),
+    )
