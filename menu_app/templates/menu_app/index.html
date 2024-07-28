@@ -1,0 +1,7 @@
+{% extends 'menu_app/base.html' %}
+{% load draw_menu %}
+{% block content %}
+  <div class="menu-section">
+    {% draw_menu 'main_menu' %}
+  </div>
+{% endblock %}
