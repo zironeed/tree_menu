@@ -6,17 +6,16 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         print('\nThe project configure begins . . .\n')
 
-        print('manage.py migrate . . .')
+        print('manage.py migrate . . .\n')
         call_command('migrate')
-        print('Success!')
+        print('Success!\n')
 
-        print('manage.py create_admin . . .')
-        call_command('create_admin')
-        print('Success!')
-
-        print('manage.py create_menu . . .')
-        call_command('create_menu')
-        print('Success!')
+        print('manage.py load data data.json . . .\n')
+        call_command('loaddata', 'data.json')
+        print("""admin data
+username: admin
+password: admin""")
+        print('Success!\n')
 
         print('manage.py runserver . . .')
         call_command('runserver')

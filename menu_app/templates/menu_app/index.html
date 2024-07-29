@@ -2,6 +2,9 @@
 {% load draw_menu %}
 {% block content %}
   <div class="menu-section">
-    {% draw_menu 'main_menu' %}
+    {% for menu in menus %}
+      <h2>{{ menu.name }}</h2>
+      {% draw_menu menu.name %}
+    {% endfor %}
   </div>
 {% endblock %}
